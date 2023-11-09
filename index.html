@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-cmn-Hans-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>百家姓 - 文博社</title>
+    <link rel="stylesheet" href="//unpkg.com/heti/umd/heti.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="container">
+    <article class="heti heti--ancient">
+        <h1>百家姓</h1>
+        <p class="heti-small article-description">
+            百家姓是一部关于中文姓氏的作品，成书于北宋初。原收集姓氏 411 个，后增补到 504 个，其中单姓 444 个，复姓 60 个。
+        </p>
+        <p class="heti-verse heti-x-large" id="article-body">
+        </p>
+    </article>
+    <footer>
+        <hr>
+        <small class="power-by">文字排版效果由 <a href="https://sivan.github.io/heti/">赫蹏</a> 驱动，网页托管于 <a href="https://github.com/WingBo/baijiaxing">GitHub</a> 。</small>
+    </footer>
+</main>
+
+<script src="https://unpkg.com/heti/umd/heti-addon.min.js"></script>
+<script src="./data.js"></script>
+<script>
+    let artBodyEl = document.getElementById("article-body");
+    const contentItems = bjxData.content
+    let _body = "";
+    contentItems.forEach(content => {
+        _body += content + '<br>';
+    })
+    artBodyEl.innerHTML = _body;
+    const heti = new Heti('.heti');
+    heti.autoSpacing();
+</script>
+</body>
+</html>
